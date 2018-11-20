@@ -11,6 +11,10 @@ services:
     ports:
       - "24224:24224"
       - "24224:24224/udp"
+    networks:
+      default: {}
+      tp-docker-ci-symfony_monitoring-net:
+        aliases: [fluentd]
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.4.3
@@ -25,3 +29,7 @@ services:
       - "elasticsearch"
     ports:
       - "5601:5601"
+
+networks:
+  tp-docker-ci-symfony_monitoring-net:
+    external: true
