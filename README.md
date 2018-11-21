@@ -1,22 +1,22 @@
-# tp-docker-monitoring
+TP-devops-docker-monitoring
+===================
 
 Practical school work for the implementation of a monitoring stack using
 Elasticsearch, Fluentd and Kibana.
 
-Prerequisites :
+Prerequisites
 ------------
 - install docker-ce
 - install docker-compose
-- install composer
 
 Used docker images
 ------------
 - docker.elastic.co/elasticsearch/elasticsearch:6.4.3
 - docker.elastic.co/kibana/kibana:6.4.3
-- custom fluentd ( based on fluent/fluentd:v1.2.6 )( cf ./fulentd/Dockerfile)
+- custom fluentD ( based on fluent/fluentd:v1.2.6 )( cf ./fulentd/Dockerfile)
 
 
-Pull and Build docker Image
+Pull and build docker images
 ------------
 From project path run the following command:
 ```
@@ -29,10 +29,23 @@ Start
 ```
 $  docker-compose up -d
 ```
-and browse http://localhost:5601
+and Browse the kibana ihm http://localhost:5601
 
 Stop
 ------------
 ```
 $  docker-compose stop
 ```
+
+fluentD listen port:
+------------
+- 5140 ( type: syslog , format: nginx )
+- 24224 ( type: syslog , format: syslog, message_format: rfc5424 )
+
+
+Useful links
+------------
+- ELK stack : https://www.elastic.co/elk-stack
+- kibana : https://www.elastic.co/guide/en/kibana/6.4/index.html
+- elasticsearch : https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html
+- fluentd : https://docs.fluentd.org/v1.0/articles/quickstart
